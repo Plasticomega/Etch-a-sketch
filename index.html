@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-a-sketch</title>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="gab"></div>
-    <div class="slidecontainer">
-        <div id="demo">Value :</div>
-        <input type="range" min="10" max="100" value="55" class="slider" id="myRange">
-    </div>  
+<div class="Etch-a-sketch"> 
+<div class="titleblock">Etch-a-sketch</div>
+<div class="etch">
+    <div class="side-panel-right"></div>
+    <div class="center-panel">
+        <div class="gab"></div>
+        <div class="slidecontainer">
+            <label id="demo">Canvas size: </label>
+            <input type="range" min="10" max="100" value="55" class="slider" id="myRange">
+        </div>
+    </div>
+    
+    <div class="side-panel">
+        <div class="colorbox"><input type="color" id="colorpicker" value="#000000"></div>
+        <div><button class="colormode">COLOR MODE</button></div>
+        <div><button class="rainbow">RAINBOW</button></div>
+        <!-- add eraser here -->
+        <button class="clearButton">CLEAR</button>
+    </div>
+</div>   
+</div>
     <script src="javascript.js"></script>
 </body>
 </html>
