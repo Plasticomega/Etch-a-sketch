@@ -1,24 +1,10 @@
-/* 
-1)Create a webpage with 16*16 grid of square divs
-  - create using javascript
-  - put grid squares inside a container div
-  - USe flexbox to make gird
-2)Set a hover effect that changes the color of divs
-  - to change the color of div , add a new class to it
-  - change its background color
-3)
-
-
-
-
-*/
 let slider = document.querySelector("#myRange");
 let output = document.querySelector("#demo");
 
 let number_of_pixels = 55*55
 let height_of_pixel = (600)/slider.value
 let width_of_pixel = (600)/slider.value
-// Update the current slider value (each time you drag the slider handle)
+
 slider.oninput = function() {
   number_of_pixels = slider.value * slider.value
   height_of_pixel = (600/slider.value)
@@ -37,6 +23,11 @@ let color
 let isDrawing = false
 let rainbowMode = false
 let colorMode = true
+let eraser = document.querySelector(".eraser")
+eraser.addEventListener('click',()=> {
+  rainbowMode = false;
+  color = 'white'
+})
 
 function randomcolor(){
 color = `rgb(${Math.random()*256},${Math.random()*256},${Math.random()*256})`}
@@ -73,6 +64,9 @@ for(let n=0;n<number_of_pixels;n++){
     pixel[n].addEventListener('mousedown',function(e){ 
       e.preventDefault()
       isDrawing = true;
+      if(rainbowMode){
+        randomcolor()
+      }
       (pixel[n].style.backgroundColor = color)})
     pixel[n].addEventListener('mouseup',function(){ 
       isDrawing = false})
@@ -92,5 +86,4 @@ createGrid()
 
 let clearButton = document.querySelector('.clearButton')
 clearButton.addEventListener('click',()=>{createGrid()})
-
 
